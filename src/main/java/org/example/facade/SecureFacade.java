@@ -26,7 +26,7 @@ public class SecureFacade {
     Method that connects to the SecureLogin component
      */
     private static String login(String username, String passwordHash) throws Exception {
-        return SecureUrlReader.readURL(String.format("https://localhost:35000/login?user=%s&password=%s", username, passwordHash));
+        return SecureUrlReader.readURL(String.format("https://34.227.97.12:35000/login?user=%s&password=%s", username, passwordHash));
     }
 
     /*
