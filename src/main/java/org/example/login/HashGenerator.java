@@ -4,6 +4,11 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 public class HashGenerator {
+    /**
+     * Method that hashes a string using SHA-256
+     * @param input - String to has
+     * @return String with the result of the hash
+     */
     public static String toHash(String input) {
         try {
             // get an instance of the SHA-256 message digest algorithm

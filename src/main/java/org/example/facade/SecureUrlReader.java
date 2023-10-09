@@ -11,6 +11,12 @@ import java.util.Map;
 import java.util.Set;
 
 public class SecureUrlReader {
+    /**
+     * Method that makes a remote invocation of a method via the URL string
+     * @param url - url of the endpoint
+     * @return Returns the result of the consult in String form
+     * @throws Exception - If the URL is malformed or something i can't predict happens
+     */
     public static String readURL(String url) throws Exception {
         String site = url;
         // Crea el objeto que representa una URL
