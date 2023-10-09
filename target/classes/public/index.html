@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Lab7-AREP</title>
+
+  <style>
+    h1,
+    form{
+      display: block;
+      margin-inline: auto;
+      max-width: 500px;
+    }
+    #secret{
+      margin-inline: auto;
+      max-width: 500px;
+    }
+    #secret img{
+      width: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <h1 >Bienvenido a mi aplicación super segura</h1>
+  <form >
+    <label>
+      User:
+      <input style="display: block;" id="user">
+    </label>
+    <label>
+      Password:
+      <input style="display: block;" id="passwd" type="password">
+    </label>
+    <button onclick="getWithFetch(event)">Submit</button>
+  </form>
+  <div id="secret" style="display: none;">
+    <h2>Descubriste mi información super secreta!!</h2>
+    <img src="./gif-info.gif" alt="Me dañe :c" >
+  </div>
+  <script>
+    let getWithFetch = (e) => {
+          e.preventDefault();
+          let user = document.getElementById("user").value;
+          let passwd = document.getElementById("passwd").value;
+          fetch("/login?user=" + user + "&password=" + passwd)
+          .then(res => res.text())
+          .then(res => res === "true")
+          .then(res => {
+            console.log(res);
+              let searchDiv = document.getElementById("secret");
+              searchDiv.style = res ?  "display: block;" : "display: none;";
+          })
+      };
+  </script>
+</body>
+
+</html>
