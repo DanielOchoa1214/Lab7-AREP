@@ -1,5 +1,6 @@
 package org.example.facade;
 
+import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.TrustManagerFactory;
@@ -13,6 +14,8 @@ import java.security.NoSuchAlgorithmException;
 import java.security.cert.CertificateException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import static org.example.facade.SecureUrlReader.readURL;
 
 public class SSLContextManager {
     /**
@@ -47,11 +50,14 @@ public class SSLContextManager {
             sslContext.init(null, tmf.getTrustManagers(), null);
             SSLContext.setDefault(sslContext);
 
-
+            HttpsURLConnection.setDefaultHostnameVerifier ((hostname, session) -> true);
 
         } catch (KeyStoreException | IOException | NoSuchAlgorithmException | CertificateException |
                  KeyManagementException ex) {
             Logger.getLogger(SecureUrlReader.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
         }
     }
 
