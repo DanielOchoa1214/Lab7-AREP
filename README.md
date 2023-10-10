@@ -44,9 +44,13 @@ Ya que la aplicación haya iniciado, puedes dirigirte a tu navegador de preferen
 Para probar que el desarrollo de la aplicación fuera correcto sé probo cada funcionalidad en ella corriendo, para ello usamos un usuario y contraseña no validos y otro que fuera valido
 
 Usuario no registrado: 
+
+
 <img width="471" alt="Screenshot 2023-10-10 at 10 44 07 AM" src="https://github.com/DanielOchoa1214/Lab7-AREP/assets/77862016/7f80bf3c-2052-4184-9c45-039fd85e94e6">
 
 Usuario registrado: 
+
+
 <img width="553" alt="Screenshot 2023-10-10 at 10 44 50 AM" src="https://github.com/DanielOchoa1214/Lab7-AREP/assets/77862016/dce12180-17b0-404a-94d6-a4bce551ca74">
 
 ## Documentacion
