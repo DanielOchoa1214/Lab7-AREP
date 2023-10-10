@@ -103,7 +103,7 @@ Ademas el proyecto java fue desplegado de 2 maquinas virtuales de AWS
 
 <img width="1438" alt="Screenshot 2023-10-10 at 10 56 22 AM" src="https://github.com/DanielOchoa1214/Lab7-AREP/assets/77862016/418ef369-9da7-44a3-b2d9-5efebd56687b">
 
-Y hay un videito para que me creas que lo desplegue en AWS, esta en el root del proyecto ;)
+Y hay un videito para que me creas que lo desplegue en AWS, esta en el root del proyecto ;) (Era muy pesado para poner en el readme 😣)
 
 ## Agradecimientos
 
