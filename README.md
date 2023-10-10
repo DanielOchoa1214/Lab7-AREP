@@ -89,47 +89,21 @@ Para simular desde un mismo proyecto la arquitectura propuesta se separaron pro 
 
 La arquitectura de este taller es presentada con el siguiente diagrama 
 
-
+<img width="795" alt="Screenshot 2023-10-10 at 10 50 15 AM" src="https://github.com/DanielOchoa1214/Lab7-AREP/assets/77862016/62f1c43b-6362-48fe-9561-addcc7d717f5">
 
 En donde se especifican los siguientes componentes: 
 
-Security Group: Grupo de seguridad de la instancia en AWS que lproteje los puertos de la maquina (firewal de nivel 1)
-AWS-EC2: Instancia basica de una maquina virtual en la nube de Amazon
-Docker Engine: Motor de los coontenedores instalado en la instancia
-APP-LB-RoundRobin: Balanceador de cargas que implementa un algoritmo estatico de RoundRobin donde se rotan los servidorespor cada peticion
-LogService: Servidor que almacenara en la base de datos el log, y devolvera los ultimos 10
-MongoDB: Contenedor con la base de datos de mongo
-
-## Como crear la imagenes y desplegar el proyecto
-
-El proceso para crear las imagenes y el despliegue es el mismo, solo que se debe hacer en la instancia de la maquina virtual ya creada en el taller
-
-### Creacion de las imagenes
-
-Para automatizar la creacion de las imagenes y los contenedores se creo el archivo docker-compose.yml con l¡a siguiente informacion
-
-<img width="1000" alt="Screenshot 2023-09-29 at 7 33 25 PM" src="https://github.com/DanielOchoa1214/Lab6-AREP/assets/77862016/3e02ae27-0d47-492f-8a62-f8470d7ed155">
-<img width="1010" alt="Screenshot 2023-09-29 at 7 33 39 PM" src="https://github.com/DanielOchoa1214/Lab6-AREP/assets/77862016/b700b7f4-ed1b-44a2-8ec4-f143f3fcd3e8">
-
-En este archivo especificamos como se crean las imagenes, en el hay 2 metodos de creacion, especificando la imagen con un Dockerfile y otro, trayendo la imagen de docker hub, aqui no se ahondara mucho ya que se explico en detalle en el taller anterior.
-
-Lo nuevo que aparece en el archivo es la seccion de "network" en esta estamos especificando la red virtual que crearemos donde estaran los contenedores, en este especificamos el tipo de red (atributo driver), el id de la red y el gateway de esta. La especificacion de la red se hace para que los contenedores puedan tener una IP estatica y sea facilmente desplegable en cualquier PC.
-
-Ya con el archivo lo unico que debemos hacer es correr el siguiente comando
-
-```
-docker-compose up -d
-```
-
-Y si entras en la URL http://localhost:8080 encontraras (ojala) el app corriendo
+Browser: Representa al cliente
+LoginService: En la arquitectura que se creo en el taller este componente corresponderia con la fachada del servidor
+Otherservice: En la arquitectura que se creo en el taller este componente corresponderia con el login
 
 ### Despliegue
 
-Para crear una instancia EC2 en AWS puedes solo seguir el siguiente [tutorial](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html). Ya cuando la hayas creado y te hayas conectado, simplemente clona el proyecto en la instancia y sigue el tutorial de la seccion anterior para desplegar. Puede que haga falta instalar git, docker y el plugin de compose en la instancia para poder correr el lab, pero para ello puedes seguir los tutoriales del inicio del README.
+Ademas el proyecto java fue desplegado de 2 maquinas virtuales de AWS
 
-## Video
+<img width="1438" alt="Screenshot 2023-10-10 at 10 56 22 AM" src="https://github.com/DanielOchoa1214/Lab7-AREP/assets/77862016/418ef369-9da7-44a3-b2d9-5efebd56687b">
 
-https://github.com/DanielOchoa1214/Lab6-AREP/assets/77862016/c95c1af3-9679-45ff-a306-4f50bff2e8b1
+Y hay un videito para que me creas que lo desplegue en AWS, esta en el root del proyecto ;)
 
 ## Agradecimientos
 
