@@ -23,26 +23,31 @@ Si aún no tienes instaladas estas tecnologias, los siguientes tutoriales te pue
 Para hacer una copia local del proyecto, debes abrir tu terminal, dirigirte al directorio donde quieras que este el proyecto y usar el siguiente comando
 
 ```
-https://github.com/DanielOchoa1214/Lab6-AREP.git
+git clone https://github.com/DanielOchoa1214/Lab7-AREP.git
 ```
 
-Luego muevete al directorio creado y desde ahi ejecuta este comando
+Luego muevete al directorio creado y desde ahi ejecuta los siguientes comandos
 
 ```
-docker-compose up -d
+ java -cp "target/classes:target/dependency/*" org.example.facade.SecureFacade
+ java -cp "target/classes:target/dependency/*" org.example.login.SecureLogin
 ```
 
-Ya que la aplicación haya iniciado, puedes dirigirte a tu navegador de preferencia y entrar en http://localhost:8080 para ver la app corriendo, en ella encontraras una muy bonita página que cree con mucho esfuerzo donde puedes enviar los logs
+Ya que la aplicación haya iniciado, puedes dirigirte a tu navegador de preferencia y entrar en https://localhost:37000 para ver la app corriendo, en ella encontraras una muy bonita página que cree con mucho esfuerzo donde puedes hacer login
 
-<img width="451" alt="Screenshot 2023-09-29 at 7 06 37 PM" src="https://github.com/DanielOchoa1214/Lab6-AREP/assets/77862016/7c4f6db6-96d9-483e-9cb9-106b58f8e2b0">
+<img width="486" alt="Screenshot 2023-10-10 at 10 43 01 AM" src="https://github.com/DanielOchoa1214/Lab7-AREP/assets/77862016/2a0f57a4-c061-4f9b-a640-249fadd257c8">
 
 ## Corriendo los tests
 
 ### Test de integración
 
-Para probar que el desarrollo de la aplicación fuera correcto sé probo cada funcionalidad en ella corriendo, para ello enviamos un log y verificamos que saliera junto con los ultimos creados
+Para probar que el desarrollo de la aplicación fuera correcto sé probo cada funcionalidad en ella corriendo, para ello usamos un usuario y contraseña no validos y otro que fuera valido
 
-<img width="452" alt="Screenshot 2023-09-29 at 7 05 03 PM" src="https://github.com/DanielOchoa1214/Lab6-AREP/assets/77862016/9a3911db-bb6c-4e8b-8eac-e3476815547d">
+Usuario no registrado: 
+<img width="471" alt="Screenshot 2023-10-10 at 10 44 07 AM" src="https://github.com/DanielOchoa1214/Lab7-AREP/assets/77862016/7f80bf3c-2052-4184-9c45-039fd85e94e6">
+
+Usuario registrado: 
+<img width="553" alt="Screenshot 2023-10-10 at 10 44 50 AM" src="https://github.com/DanielOchoa1214/Lab7-AREP/assets/77862016/dce12180-17b0-404a-94d6-a4bce551ca74">
 
 ## Documentacion
 
@@ -63,7 +68,6 @@ Y en la siguiente ruta encontrarás el archivo index.html en donde si lo abres d
 * Amor
 * [Maven](https://maven.apache.org/) - Administrador de dependencias
 * [IntelliJ IDEA](https://www.jetbrains.com/es-es/idea/) - IDE de desarrollo
-* [Docker](https://www.docker.com/) - Software de contenedores
 
 ## Version
 
@@ -79,13 +83,13 @@ GNU General Public License family
 
 ## Diseño
 
-Para simular la arquitectura especificada en el taller dentro de un mismo proyecto se separaron los componentes en paquetes diferentes, uno para los LogService y otro para el balanceador RoundRobin. Ademas, se tienen los archivos Dockerfile y docker-compose que especidica como se construiran los contenedores y que haran cada uno de ellos.
+Para simular desde un mismo proyecto la arquitectura propuesta se separaron pro paquetes los componentes, un componente de fachada encargado de mostrar la pagina web y de hacer la conexion con el componente del login, y un paquete de login que contiene toda la logica del login.
 
 ## Arquitectura
 
 La arquitectura de este taller es presentada con el siguiente diagrama 
 
-<img width="908" alt="Screenshot 2023-09-29 at 7 11 56 PM" src="https://github.com/DanielOchoa1214/Lab6-AREP/assets/77862016/010a84b3-0056-45d7-972d-21b2aceffbea">
+
 
 En donde se especifican los siguientes componentes: 
 
